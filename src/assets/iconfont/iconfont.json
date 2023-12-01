@@ -1,0 +1,44 @@
+{
+  "id": "4355085",
+  "name": "坦克大战",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "9421083",
+      "name": "tank",
+      "font_class": "tank",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "11208931",
+      "name": "28-tank",
+      "font_class": "tank2",
+      "unicode": "e6bb",
+      "unicode_decimal": 59067
+    },
+    {
+      "icon_id": "15766068",
+      "name": "bomb_exploded",
+      "font_class": "bomb_exploded",
+      "unicode": "e681",
+      "unicode_decimal": 59009
+    },
+    {
+      "icon_id": "20218874",
+      "name": "si-glyph-bomb-1",
+      "font_class": "bomb",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "37954755",
+      "name": "icon-tank-Map",
+      "font_class": "tank4",
+      "unicode": "e6ac",
+      "unicode_decimal": 59052
+    }
+  ]
+}
