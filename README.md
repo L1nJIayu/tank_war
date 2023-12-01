@@ -1,7 +1,7 @@
 # tank_war
 坦克大战游戏
 
-[在线试玩](http://119.91.211.99/tank_war/)
+<a target="_blank" href="http://119.91.211.99/tank_war/">在线试玩</a>
 
 ## 操作
 
