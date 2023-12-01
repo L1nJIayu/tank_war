@@ -19,7 +19,7 @@ export enum BombDirection {
 }
 
 export type BombItem = {
-  id: number,
+  id: string,
   position: {
     x: number,
     y: number
@@ -124,9 +124,6 @@ const move = () => {
       break
     case BombDirection.Right:
       position.value.x += speed
-      break
-    case BombDirection.Left:
-      position.value.x -= speed
       break
     case BombDirection.Left:
       position.value.x -= speed
