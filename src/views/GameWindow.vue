@@ -1,8 +1,6 @@
 <template>
   <div
     class="gameWindow"
-    @keydown="handleKeyDown"
-    tabindex="0"
     :style="{
       width: windowWidth + 'px',
       height: windowHeight + 'px'
@@ -33,7 +31,7 @@ import type { BombItem } from '../components/Bomb.vue'
 
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 import Tank from '../components/Tank.vue';
 import EnemyTank from '../components/EnemyTank.vue';
 import Bomb, {BombDirection} from '../components/Bomb.vue';
@@ -49,7 +47,6 @@ const {
 } = useStore()
 
 const tank = ref<InstanceType<typeof Tank>>()
-
 
 const handleKeyDown = (event: KeyboardEvent) => {
 
@@ -84,6 +81,10 @@ const appendBomb = (attr: {
     id: uuid()
   })
 }
+
+defineExpose({
+  handleKeyDown
+})
 
 
 </script>
