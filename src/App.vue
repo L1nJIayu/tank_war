@@ -2,6 +2,7 @@
   <div class="game">
     <GameWindow />
     <GameInstruction />
+    <Controller />
   </div>
 </template>
 
@@ -10,6 +11,9 @@
 <script setup lang="ts">
 import GameWindow from './views/GameWindow.vue';
 import GameInstruction from './components/GameInstruction.vue'
+import Controller from '@/components/Controller.vue';
+
+
 </script>
 
 <style lang="less">
@@ -19,11 +23,12 @@ import GameInstruction from './components/GameInstruction.vue'
   height: 100%;
   background-color: #978e8e;
 
+  position: relative;
+
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-
 
 }
 </style>

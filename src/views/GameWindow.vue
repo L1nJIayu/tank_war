@@ -8,12 +8,22 @@
       height: windowHeight + 'px'
     }">
     <Tank ref="tank" @shoot="appendBomb"></Tank>
+
+
+    <EnemyTank
+      v-for="item in enemyTankList"
+      :key="item.id"
+      :tank-color="item.tankColor"
+      :is-auto="item.isAuto"></EnemyTank>
+
+
     <Bomb
       v-for="item in bombList"
       :key="item.id"
       :direction="item.direction"
       :position="item.position"
     />
+
   </div>
 </template>
 
@@ -25,15 +35,21 @@ import type { BombItem } from '../components/Bomb.vue'
 <script setup lang="ts">
 import { ref } from 'vue'
 import Tank from '../components/Tank.vue';
+import EnemyTank from '../components/EnemyTank.vue';
 import Bomb, {BombDirection} from '../components/Bomb.vue';
 
 import { v4 as uuid } from 'uuid'
 
 import { useStore } from '@/stores/store';
 
-const { windowWidth, windowHeight } = useStore()
+const {
+  windowWidth,
+  windowHeight,
+  enemyTankList
+} = useStore()
 
 const tank = ref<InstanceType<typeof Tank>>()
+
 
 const handleKeyDown = (event: KeyboardEvent) => {
 
@@ -79,6 +95,5 @@ const appendBomb = (attr: {
   border: 5px solid #000;
   border-radius: 24px;
   position: relative;
-  // overflow: hidden;
 }
 </style>

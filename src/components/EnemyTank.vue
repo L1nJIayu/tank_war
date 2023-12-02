@@ -32,7 +32,7 @@ enum CannonDirection {
 </script>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onUnmounted, ref } from 'vue'
 import { BombDirection } from './Bomb.vue'
 
 import { useStore } from '@/stores/store';
@@ -42,8 +42,16 @@ const {
   tankSize
 } = useStore()
 
+onUnmounted(() => {
+  if(autoMoveTimer.value) {
+    clearInterval(autoMoveTimer.value)
+    autoMoveTimer.value = null
+  }
+})
+
 const props = defineProps<{
   tankColor?: string
+  isAuto?: boolean
 }>()
 const emits = defineEmits(['shoot'])
 
@@ -136,6 +144,17 @@ const stopMove = () => {
 }
 
 
+const autoMoveTimer = ref<number | null>(null)
+const autoMove = () => {
+  const keys = ['ArrowUp','ArrowDown','ArrowLeft','ArrowRight']
+  if(!autoMoveTimer.value) {
+    autoMoveTimer.value = setInterval(() => {
+      const random = Math.floor(Math.random() * 4)
+      changeMoveDirection(keys[random])
+    }, 2000)
+  }
+}
+if(props.isAuto) autoMove()
 
 /* ============================= 炮筒方向 ============================= */
 const cannonDirection = ref<CannonDirection>(CannonDirection.Up)
